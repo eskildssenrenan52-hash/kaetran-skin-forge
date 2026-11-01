@@ -12,22 +12,13 @@ for name, (cw, ch, top) in CELLS.items():
     a[..., 3] = np.where(bg, 0, 255)
     im = Image.fromarray(a)
     W, H = im.size
-    fg = ~bg
-    lab, n = ndimage.label(ndimage.binary_dilation(fg, iterations=6))
-    # agrupa componentes por célula usando centro
     cells = [[None]*3 for _ in range(8)]
-    boxes = {}
-    for i, sl in enumerate(ndimage.find_objects(lab), 1):
-        ys, xs = sl
-        if (ys.stop-ys.start)*(xs.stop-xs.start) < 300: continue
-        cy, cx = (ys.start+ys.stop)/2, (xs.start+xs.stop)/2
-        col, row = min(7, int(cx / (W/8))), min(2, int(cy / (H/3)))
-        bb = boxes.get((col,row))
-        boxes[(col,row)] = (xs.start, ys.start, xs.stop, ys.stop) if not bb else (min(bb[0],xs.start), min(bb[1],ys.start), max(bb[2],xs.stop), max(bb[3],ys.stop))
-    for (col,row), bb in boxes.items():
-        c = im.crop(bb); cells[col][row] = c.crop(c.getbbox())
+    for col in range(8):
+        for row in range(3):
+            c = im.crop((col*W//8, row*H//3, (col+1)*W//8, (row+1)*H//3)); bb = c.getbbox()
+            if bb: cells[col][row] = c.crop(bb)
     old = Image.open(f"public/look/{name}.png").convert("RGBA")
-    oc = old.width // cw
+    oc = 8  # mantém só as 8 originais (idempotente)
     out = Image.new("RGBA", ((oc + 8) * cw, ch * 3), (0, 0, 0, 0))
     out.alpha_composite(old.crop((0, 0, oc * cw, ch * 3)), (0, 0))
     for col in range(8):
@@ -40,4 +31,12 @@ for name, (cw, ch, top) in CELLS.items():
             cell.putalpha(cell.getchannel("A").point(lambda v: 255 if v > 110 else 0))
             y = row * ch + (0 if top else ch - cell.height)
             out.alpha_composite(cell, ((oc + col) * cw + (cw - cell.width) // 2, y))
+    if name == "hats":  # abre o rosto do capuz do mago (vista frontal)
+        px = out.load(); x0 = 8 * cw; bb = out.crop((x0, 0, x0 + cw, ch)).getbbox()
+        if bb:
+            l, t, r, b = bb; w, h = r - l, b - t
+            for y in range(t + int(h * .3), b):
+                for x in range(l + int(w * .25), r - int(w * .25)):
+                    R, G, B, A = px[x0 + x, y]
+                    if A and max(R, G, B) < 45: px[x0 + x, y] = (0, 0, 0, 0)
     out.save(f"public/look/{name}.png"); print(name, out.size)
