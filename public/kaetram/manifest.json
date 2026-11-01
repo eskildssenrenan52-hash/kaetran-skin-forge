@@ -1,0 +1,41 @@
+{
+  "sourceRepository": "https://github.com/Kaetram/Kaetram-Open",
+  "sourceCommit": "f5b6665ef035ba79816458b92cbe77204042a318",
+  "sourceLicense": "MPL-2.0 + LICENSE_OPL",
+  "copiedAssetRoot": "/kaetram/img",
+  "spriteRoot": "/kaetram/img/sprites",
+  "runtimeCatalog": "src/odyssey/kaetram-sprites.json",
+  "sprites": {
+    "files": 1316,
+    "bytes": 2257013,
+    "catalogEntries": 1316,
+    "categories": {
+      "bushes": 11,
+      "crowns": 11,
+      "cursors": 14,
+      "death": 1,
+      "effectentity": 1,
+      "effects": 31,
+      "exclamation": 1,
+      "exclamationblue": 1,
+      "fishspots": 5,
+      "items": 617,
+      "mobs": 166,
+      "npcs": 77,
+      "objects": 5,
+      "pets": 3,
+      "player": 269,
+      "projectiles": 33,
+      "rocks": 20,
+      "shadow": 1,
+      "skills": 20,
+      "sparks": 1,
+      "target": 1,
+      "trees": 27
+    }
+  },
+  "allVisualAssets": {
+    "files": 1429,
+    "bytes": 3720717
+  }
+}

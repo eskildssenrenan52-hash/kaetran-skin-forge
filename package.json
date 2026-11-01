@@ -6,12 +6,16 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
+    "build:android-offline": "vite build --config vite.android.config.ts",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write .",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "apk:package": "bash scripts/package-android-offline.sh",
+    "apk": "bash scripts/package-android-offline.sh && gradle -p android assembleDebug",
+    "apk:release": "bash scripts/package-android-offline.sh && gradle -p android assembleRelease"
   },
   "overrides": {
     "rolldown": "1.2.1"
