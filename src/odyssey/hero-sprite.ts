@@ -19,6 +19,13 @@ export const HERO_SKINS: HeroSkin[] = [
   { id: "oldman", name: "Velho Sábio", desc: "Barba longa, passos lentos, olhar atento.", sheet: "player/skin/oldmanskin", minLevel: 7 },
   { id: "skeleton", name: "Esqueleto", desc: "Voltou do Abismo e esqueceu de morrer.", sheet: "player/skin/skeletonskin", minLevel: 10 },
   { id: "darkskeleton", name: "Esqueleto Sombrio", desc: "Ossos tingidos pela Noite.", sheet: "player/skin/darkskeletonskin", minLevel: 15 },
+  // Novas skins pintadas por IA (adicionadas ao fim para preservar índices salvos).
+  { id: "knight", name: "Cavaleiro de Prata", desc: "Armadura polida e tabardo azul.", sheet: "hero/knight", minLevel: 1, ai: true },
+  { id: "ninja", name: "Ninja", desc: "Sombra veloz de lenço rubro.", sheet: "hero/ninja", minLevel: 2, ai: true },
+  { id: "wizard", name: "Mago Estelar", desc: "Barba branca e manto de estrelas.", sheet: "hero/wizard", minLevel: 3, ai: true },
+  { id: "orc", name: "Orc Guerreiro", desc: "Pele verde, couro e presas.", sheet: "hero/orc", minLevel: 4, ai: true },
+  { id: "pirate", name: "Pirata", desc: "Bandana vermelha e colete de couro.", sheet: "hero/pirate", minLevel: 5, ai: true },
+  { id: "astronaut", name: "Astronauta", desc: "Caiu das estrelas em Kaetran.", sheet: "hero/astronaut", minLevel: 6, ai: true },
 ];
 export const skinUnlocked = (i: number, level: number) => level >= (HERO_SKINS[i]?.minLevel ?? 1);
 /** Efeito especial do golpe `step` (0–4) do combo para a skin. */
