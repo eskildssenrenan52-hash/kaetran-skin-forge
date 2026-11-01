@@ -1,0 +1,6 @@
+{
+  "routes": [
+    { "path": "/", "title": "Creature Clash Reimagined" },
+    { "path": "/odyssey", "title": "Creature Clash — Odyssey" }
+  ]
+}

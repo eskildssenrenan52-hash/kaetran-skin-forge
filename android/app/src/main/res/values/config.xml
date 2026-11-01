@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Mantido apenas como metadado; MainActivity abre o pacote local do APK. -->
+    <string name="game_url" translatable="false">file:///android_asset/game/index.html</string>
+</resources>
