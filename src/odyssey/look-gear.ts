@@ -15,7 +15,7 @@ export const GEAR_ROW: Record<string, number> = { down: 0, right: 1, up: 2 };
 export const GEAR: Record<GearSlot, SlotDef> = {
   hat: { label: "Chapéus", sheet: "/look/hats.png", cw: 36, ch: 32, anchor: -17, layer: "front", items: [
     it("Chapéu de mago"), it("Coroa dourada", 8), it("Elmo de cavaleiro", 3, 3), it("Tricórnio pirata", 2), it("Capuz de couro", 1, 7, 1.2), it("Chapéu de palha"), it("Elmo viking", 5), it("Gorro de patrulheiro"),
-    it("Capuz do mago sombrio", 4, 7, 1.2), it("Elmo de paladino", 9, 4, 1.1), it("Kabuto samurai", 7, 4, 1.1), it("Touca de lã", 1, 3), it("Cartola"), it("Chapéu de chef", 2), it("Tiara de cristal", 6, -1, 0.8), it("Elmo espartano", 8, 4, 1.1),
+    it("Capuz do mago sombrio", 4, 7, 1.2), it("Elmo de paladino", 9, 4, 1.25), it("Kabuto samurai", 7, 4, 1.1), it("Touca de lã", 1, 3), it("Cartola"), it("Chapéu de chef", 2), it("Tiara de cristal", 6, 3, 0.8), it("Elmo espartano", 8, 4, 1.1),
   ] },
   horns: { label: "Chifres", sheet: "/look/horns.png", cw: 40, ch: 28, anchor: -19, layer: "front", items: [
     it("Chifres de demônio"), it("Chifres de carneiro", 2), it("Chifres de dragão", 6), it("Galhada de cervo"), it("Chifres de unicórnio", 4), it("Chifres de touro", 3), it("Chifres de cristal", 8), it("Chifres do vazio", 12),
