@@ -1,6 +1,6 @@
 // Acessórios pintados por IA (public/look, gerados por scripts/build-look-sheets.py) desenhados
 // em camadas sobre as skins Kaetram (quadros 32×32, pés em y; cabeça ~y-22, olhos ~y-17, ombros ~y-14).
-// Cada folha tem 8 colunas × 3 linhas (frente, lado direito, costas) em 2× a escala do jogo;
+// Cada folha tem 16 colunas (8 originais + 8 de scripts/append-look-sheets.py) × 3 linhas (frente, lado direito, costas) em 2× a escala do jogo;
 // aqui elas são desenhadas pela metade. O lado esquerdo espelha a linha do lado direito.
 
 export type GearSlot = "hat" | "horns" | "eyes" | "cape" | "wings" | "extra";
@@ -15,21 +15,27 @@ export const GEAR_ROW: Record<string, number> = { down: 0, right: 1, up: 2 };
 export const GEAR: Record<GearSlot, SlotDef> = {
   hat: { label: "Chapéus", sheet: "/look/hats.png", cw: 36, ch: 32, anchor: -17, layer: "front", items: [
     it("Chapéu de mago"), it("Coroa dourada", 8), it("Elmo de cavaleiro", 3, 3), it("Tricórnio pirata", 2), it("Capuz de couro", 1, 7, 1.2), it("Chapéu de palha"), it("Elmo viking", 5), it("Gorro de patrulheiro"),
+    it("Capuz do mago sombrio", 4, 7, 1.2), it("Elmo de paladino", 9, 4, 1.1), it("Kabuto samurai", 7, 4, 1.1), it("Touca de lã", 1, 3), it("Cartola"), it("Chapéu de chef", 2), it("Tiara de cristal", 6, -1, 0.8), it("Elmo espartano", 8, 4, 1.1),
   ] },
   horns: { label: "Chifres", sheet: "/look/horns.png", cw: 40, ch: 28, anchor: -19, layer: "front", items: [
     it("Chifres de demônio"), it("Chifres de carneiro", 2), it("Chifres de dragão", 6), it("Galhada de cervo"), it("Chifres de unicórnio", 4), it("Chifres de touro", 3), it("Chifres de cristal", 8), it("Chifres do vazio", 12),
+    it("Chifres infernais", 9), it("Chifres espirais", 3), it("Chifres de gelo", 7), it("Chifres de lava", 10), it("Chifres de osso", 5), it("Chifres de vinha", 2), it("Chifres ametista", 11), it("Chifres de oni", 4),
   ] },
   eyes: { label: "Olhos", sheet: "/look/eyes.png", cw: 24, ch: 12, anchor: -17, layer: "front", items: [
     it("Olhos de brasa"), it("Olhos arcanos"), it("Óculos redondos"), it("Tapa-olho", 2), it("Máscara dourada", 6), it("Venda ninja", 3), it("Visor rubro", 10), it("Olhos solares", 5),
+    it("Óculos escuros"), it("Visão noturna", 6), it("Monóculo", 3), it("Óculos steampunk", 5), it("Óculos de coração"), it("Máscara de caveira", 8), it("Visor futurista", 12), it("Óculos de estrela", 2),
   ] },
   cape: { label: "Capas", sheet: "/look/capes.png", cw: 32, ch: 36, anchor: -17, layer: "back", items: [
     it("Capa carmesim"), it("Manto real", 5), it("Capa da floresta"), it("Capa do oceano"), it("Capa dourada", 10), it("Capa estrelada", 7), it("Arminho real", 12), it("Manto de viajante"),
+    it("Capa vampírica", 6), it("Manto rasgado", 2), it("Capa sagrada", 9), it("Capa de lava", 12), it("Capa de gelo", 10), it("Capa de folhas", 3), it("Capa lunar", 7), it("Capa de bobo da corte", 4),
   ] },
   wings: { label: "Asas", sheet: "/look/wings.png", cw: 64, ch: 40, anchor: -13, layer: "back", items: [
     it("Asas de anjo", 6), it("Asas de morcego", 4), it("Asas de fada", 2), it("Asas de dragão", 9), it("Asas de fênix", 12), it("Asas de gelo", 8), it("Asas de folha", 3), it("Asas sombrias", 14),
+    it("Asas de borboleta", 3), it("Asas mecânicas", 10), it("Asas de lava", 13), it("Asas arco-íris", 7), it("Asas de corvo", 5), it("Asas douradas", 15), it("Asas espectrais", 11), it("Asas de libélula", 2),
   ] },
   extra: { label: "Adornos", sheet: "/look/extras.png", cw: 36, ch: 24, anchor: -19, layer: "front", items: [
     it("Auréola", 5, -5), it("Coroa de flores"), it("Orelhas de gato"), it("Orelhas de raposa"), it("Orelhas de coelho"), it("Chama-fátuo", 6, -6), it("Coroa de louros", 4), it("Coroa de estrelas", 10, -4),
+    it("Laço vermelho"), it("Orelhas de lobo", 2), it("Orelhas de urso"), it("Presilha de flor"), it("Tiara de diabinho", 4), it("Antenas", 3), it("Coroa cintilante", 9, -3), it("Penas brancas", 5),
   ] },
 };
 export const GEAR_SLOTS = Object.keys(GEAR) as GearSlot[];
